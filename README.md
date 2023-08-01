@@ -11,3 +11,15 @@ fnm install && fnm use && node --version
 ```bash
 npm install
 ```
+
+```bash
+npm run build
+```
+
+```bash
+npm run lint
+```
+
+```bash
+npm pack --dry-run
+```

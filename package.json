@@ -1,0 +1,33 @@
+{
+  "name": "vue-social-media-icons",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-social-media-icons.umd.cjs",
+  "module": "./dist/vue-social-media-icons.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-social-media-icons.js",
+      "require": "./dist/vue-social-media-icons.umd.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build && vue-tsc",
+    "lint": "publint"
+  },
+  "dependencies": {
+    "vue": "3.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.5",
+    "@vitejs/plugin-vue": "4.2.3",
+    "publint": "0.2.0",
+    "social-media-icons": "0.1.1",
+    "typescript": "5.1.6",
+    "vite": "4.4.7",
+    "vue-tsc": "1.8.8"
+  }
+}
