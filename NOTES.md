@@ -15,3 +15,9 @@
 - https://www.npmjs.com/package/vue-tsc
 - `npm install -D @types/node @tsconfig/node18 @vue/tsconfig`
 - `npm install -D publint`
+- https://github.com/vuejs/core/tree/main/packages/compiler-sfc
+- https://www.npmjs.com/package/svgson
+- https://github.com/unjs/jiti: `npm install -D jiti`
+- https://github.com/vuejs/vue/issues/10183 + https://www.npmjs.com/package/@vue/server-renderer
+- https://vuejs.org/guide/extras/render-function.html
+- https://github.com/vuejs/create-vue/blob/v3.7.2/.prettierrc
