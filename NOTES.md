@@ -40,6 +40,7 @@
 - https://github.com/qmhc/vite-plugin-dts/tree/main/examples/vue
 - https://github.com/qmhc/vite-plugin-dts/issues/267
 - https://github.com/qmhc/vite-plugin-dts/issues/267#issuecomment-1786996676
+- https://github.com/qmhc/vite-plugin-dts/blob/main/package.json#L66: `"dependencies": { "vue-tsc": "^1.8.26" }` + `"peerDependencies": { "typescript": "*", "vite": "*" }`
 
 ## Snippets
 
