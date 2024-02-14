@@ -36,3 +36,90 @@
 - https://github.com/wobsoriano/vue-sfc-unbuild
 - https://github.com/jsonleex/demo-mkdist
 - https://github.com/kaandesu/vue3-component-library-template
+- https://github.com/qmhc/vite-plugin-dts
+- https://github.com/qmhc/vite-plugin-dts/tree/main/examples/vue
+- https://github.com/qmhc/vite-plugin-dts/issues/267
+- https://github.com/qmhc/vite-plugin-dts/issues/267#issuecomment-1786996676
+
+## Snippets
+
+### Workaround to generate different declaration files by Will Stone and Matt Kilpatrick
+
+- https://github.com/qmhc/vite-plugin-dts/issues/267#issuecomment-1786996676
+- https://github.com/qmhc/vite-plugin-dts/issues/267#issuecomment-1839043850
+- `copyFileSync("dist/index.d.ts", "dist/index.d.cts");` if `"type": "module"`
+- https://github.com/ektotv/xmltv/blob/main/vite.config.js + https://github.com/ektotv/xmltv/blob/main/package.json
+- https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#packagejson-exports-imports-and-self-referencing
+
+```ts
+import { copyFileSync } from "node:fs"
+
+import { defineConfig } from "vite"
+import dts from "vite-plugin-dts"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  build: {...},
+  plugins: [
+    ...,
+    dts({
+      afterBuild: () => {
+        // To pass publint (`npm x publint@latest`) and ensure the
+        // package is supported by all consumers, we must export types that are
+        // read as ESM. To do this, there must be duplicate types with the
+        // correct extension supplied in the package.json exports field.
+        copyFileSync("dist/index.d.ts", "dist/index.d.mts")
+      },
+      exclude: [ ... ],
+      include: ["src"],
+    }),
+  ],
+})
+```
+
+```json
+{
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/main.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/main.cjs"
+      }
+    }
+  }
+}
+```
+
+```json
+// package.json
+{
+  "name": "my-package",
+  "type": "module",
+  "exports": {
+    ".": {
+      // Entry-point for `import "my-package"` in ESM
+      "import": {
+        // Where TypeScript will look.
+        "types": "./types/esm/index.d.ts",
+        // Where Node.js will look.
+        "default": "./esm/index.js"
+      },
+      // Entry-point for `require("my-package") in CJS
+      "require": {
+        // Where TypeScript will look.
+        "types": "./types/commonjs/index.d.cts",
+        // Where Node.js will look.
+        "default": "./commonjs/index.cjs"
+      }
+    }
+  },
+  // Fall-back for older versions of TypeScript
+  "types": "./types/index.d.ts",
+  // CJS fall-back for older versions of Node.js
+  "main": "./commonjs/index.cjs"
+}
+```
