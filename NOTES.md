@@ -22,3 +22,17 @@
 - https://vuejs.org/guide/extras/render-function.html
 - https://github.com/vuejs/create-vue/blob/v3.7.2/.prettierrc
 - `npm install -D npm-run-all`
+- https://www.jsgarden.co/blog/create-a-vue-3-component-with-typescript
+- https://www.npmjs.com/package/@heroicons/vue
+- https://github.com/xiaoluoboding/vue-library-starter
+- https://github.com/LinusBorg/vue-lib-template
+- https://github.com/LinusBorg/vue-lib-template/blob/main/packages/lib/package.json
+- https://github.com/tailwindlabs/heroicons/blob/master/vue/package.json#L144: `"peerDependencies": { "vue": ">= 3" }`
+- https://github.com/wuruoyun/vue-component-lib-starter
+- https://blog.ayitinya.me/articles/how-to-create-and-publish-vue-component-to-npm
+- https://github.com/ayitinya/vue-typewriter-effect
+- https://www.matijanovosel.com/blog/making-and-publishing-components-with-vue-3-and-vite: `"peerDependencies": { "vue": "^3.0.0" }`
+- https://github.com/unjs/unbuild/issues/80
+- https://github.com/wobsoriano/vue-sfc-unbuild
+- https://github.com/jsonleex/demo-mkdist
+- https://github.com/kaandesu/vue3-component-library-template
